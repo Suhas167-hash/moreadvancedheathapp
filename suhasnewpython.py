@@ -12,7 +12,7 @@ st.sidebar.title("🏥 Health Suite Navigation")
 app_mode = st.sidebar.radio(
     "Select a Health Tool:",
     [
-        "1. BMI Screening (Your Original)", 
+        "1. BMI Screening", 
         "2. BMR & Caloric Needs Calculator", 
         "3. Target Heart Rate Zone Calculator",
         "4. Ideal Body Weight Calculator",
@@ -22,9 +22,9 @@ app_mode = st.sidebar.radio(
 )
 
 # =========================================================================
-# TOOL 1: YOUR ORIGINAL BMI CALCULATOR
+# TOOL 1:  BMI CALCULATOR
 # =========================================================================
-if app_mode == "1. BMI Screening (Your Original)":
+if app_mode == "1. BMI Screening ":
     st.title("⚖️ Body Mass Index (BMI) Calculator")
     st.write("Calculate your Body Mass Index quickly and easily!")
 
