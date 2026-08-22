@@ -12,8 +12,8 @@ st.sidebar.title("🏥 Health Suite Navigation")
 app_mode = st.sidebar.radio(
     "Select a Health Tool:",
     [
-        "1. BMI Screening", 
-        "2. BMR & Caloric Needs Calculator", 
+        "1. BMI Screening",
+        "2. BMR & Caloric Needs Calculator",
         "3. Target Heart Rate Zone Calculator",
         "4. Ideal Body Weight Calculator",
         "5. Hydration & Daily Water Calculator",
@@ -22,10 +22,10 @@ app_mode = st.sidebar.radio(
 )
 
 # =========================================================================
-# TOOL 1:  BMI CALCULATOR
+# TOOL 1: BMI CALCULATOR
 # =========================================================================
-if app_mode == "1. BMI Screening ":
-    st.title("⚖️ Body Mass Index (BMI) Calculator")
+if app_mode == "1. BMI Screening":  # Fixed: Removed trailing space mismatch
+    st.title("⚖️ Body Mass Index (BMI) Calculator")  # Fixed: Cleaned emoji URL encoding
     st.write("Calculate your Body Mass Index quickly and easily!")
 
     weight = st.number_input("What is your weight in pounds?", min_value=0.0, step=0.1, value=150.0)
@@ -52,7 +52,7 @@ if app_mode == "1. BMI Screening ":
 elif app_mode == "2. BMR & Caloric Needs Calculator":
     st.title("🔥 Basal Metabolic Rate & TDEE Calculator")
     st.write("Estimate baseline metabolic energy expenditure using the clinically validated Mifflin-St Jeor equation.")
-    
+
     col1, col2 = st.columns(2)
     with col1:
         age = st.number_input("Age (years)", min_value=1, max_value=120, value=25)
@@ -60,18 +60,18 @@ elif app_mode == "2. BMR & Caloric Needs Calculator":
     with col2:
         weight_lbs = st.number_input("Weight (pounds)", min_value=10.0, value=150.0, step=0.1)
         height_in = st.number_input("Height (inches)", min_value=10.0, value=67.0, step=0.1)
-        
+
     weight_kg = weight_lbs / 2.20462
     height_cm = height_in * 2.54
-    
+
     if sex == "Male":
         bmr = (10 * weight_kg) + (6.25 * height_cm) - (5 * age) + 5
     else:
         bmr = (10 * weight_kg) + (6.25 * height_cm) - (5 * age) - 161
-        
+
     st.subheader("Results")
     st.metric(label="Basal Metabolic Rate (BMR)", value=f"{int(bmr)} kcal/day")
-    
+
     st.subheader("⚡ Total Daily Energy Expenditure (TDEE)")
     activity = st.selectbox(
         "Select Daily Activity Level:",
@@ -82,14 +82,14 @@ elif app_mode == "2. BMR & Caloric Needs Calculator":
             "Very Active (Hard exercise 6-7 days/week)"
         ]
     )
-    
+
     multipliers = {
         "Sedentary (Little or no exercise)": 1.2,
         "Lightly Active (Light exercise 1-3 days/week)": 1.375,
         "Moderately Active (Moderate exercise 3-5 days/week)": 1.55,
         "Very Active (Hard exercise 6-7 days/week)": 1.725
     }
-    
+
     tdee = bmr * multipliers[activity]
     st.metric(label="Estimated Maintenance Calories (TDEE)", value=f"{int(tdee)} kcal/day")
 
@@ -99,27 +99,27 @@ elif app_mode == "2. BMR & Caloric Needs Calculator":
 elif app_mode == "3. Target Heart Rate Zone Calculator":
     st.title("🫀 Target Heart Rate Zone Calculator")
     st.write("Calculate aerobic and anaerobic training zones using the clinical Karvonen Formula.")
-    
+
     col1, col2 = st.columns(2)
     with col1:
         age_hr = st.number_input("Age (years)", min_value=1, max_value=120, value=20)
     with col2:
         rhr = st.number_input("Resting Heart Rate (BPM)", min_value=30, max_value=120, value=65)
-        
+
     max_hr = 220 - age_hr
     hrr = max_hr - rhr
-    
+
     st.subheader("Results")
     st.metric(label="Estimated Maximum Heart Rate", value=f"{max_hr} BPM")
-    
-    st.markdown("### 🏃‍♂️ Cardiovascular Training Zones")
+
+    st.markdown("### 🏃‍♂️ Cardiovascular Training Zones")  # Fixed: Cleaned emoji URL encoding
     zones = [
         {"name": "Warm Up / Recovery (50% - 60%)", "low": 0.50, "high": 0.60},
         {"name": "Fat Burning / Light Aerobic (60% - 70%)", "low": 0.60, "high": 0.70},
         {"name": "Cardio / Aerobic Endurance (70% - 85%)", "low": 0.70, "high": 0.85},
         {"name": "Peak / Anaerobic Threshold (85% - 100%)", "low": 0.85, "high": 1.00}
     ]
-    
+
     for zone in zones:
         low_bpm = int((hrr * zone["low"]) + rhr)
         high_bpm = int((hrr * zone["high"]) + rhr)
@@ -141,12 +141,12 @@ elif app_mode == "4. Ideal Body Weight Calculator":
 
     # Devine Formula applies to heights above 60 inches (5 feet)
     inches_over_5ft = ibw_height - 60.0
-    
+
     if ibw_sex == "Male":
         ibw_kg = 50.0 + (2.3 * inches_over_5ft)
     else:
         ibw_kg = 45.5 + (2.3 * inches_over_5ft)
-        
+
     ibw_lbs = ibw_kg * 2.20462
 
     st.subheader("Results")
@@ -171,7 +171,7 @@ elif app_mode == "5. Hydration & Daily Water Calculator":
     base_ounces = h_weight * 0.5
     # Add exercise modification: ~12 ounces of water for every 30 minutes of heavy sweating
     exercise_ounces = (exercise_time / 30) * 12
-    
+
     total_ounces = base_ounces + exercise_ounces
     total_liters = total_ounces * 0.0295735
 
