@@ -184,8 +184,7 @@ elif app_mode == "5. Hydration & Daily Water Calculator":
 # =========================================================================
 # TOOL 6: ADVANCED CLINICAL DIAGNOSTICS (ASCVD & SIRS TRIAGE)
 # =========================================================================
-elif app_mode == "6. Advanced Clinical Diagnostics (Coming Soon)":
-    # Overriding the 'Coming Soon' placeholder with a fully realized clinical tool
+
     st.title("🩺 Advanced Clinical Diagnostics & Risk Scoring Suite")
     st.write("Professional-grade triage and prognostic calculators used by clinicians to guide point-of-care decisions.")
     
