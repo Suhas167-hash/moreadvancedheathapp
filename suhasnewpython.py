@@ -182,10 +182,6 @@ elif app_mode == "5. Hydration & Daily Water Calculator":
     st.caption("Target metrics may shift dynamically during periods of extreme high heat indexes or custom clinical restriction protocols (e.g., chronic heart failure or renal pathology).")
 
 # =========================================================================
-# TOOL 6: ADVANCED CARDIOVASCULAR PLACEHOLDER
-# =========================================================================
-
-# =========================================================================
 # TOOL 6: ADVANCED CLINICAL DIAGNOSTICS (ASCVD & SIRS TRIAGE)
 # =========================================================================
 elif app_mode == "6. Advanced Clinical Diagnostics (Coming Soon)":
