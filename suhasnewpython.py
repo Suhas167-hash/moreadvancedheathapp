@@ -5,21 +5,6 @@ st.set_page_config(
     page_title="Pre-Med Health & Triage Suite",
     page_icon="🏥",
     layout="centered"
-)
-
-# Multi-Tool Navigation Sidebar
-st.sidebar.title("🏥 Health Suite Navigation")
-app_mode = st.sidebar.radio(
-    "Select a Health Tool:",
-    [
-        "1. BMI Screening",
-        "2. BMR & Caloric Needs Calculator",
-        "3. Target Heart Rate Zone Calculator",
-        "4. Ideal Body Weight Calculator",
-        "5. Hydration & Daily Water Calculator",
-        "6. Advanced Clinical Diagnostics"
-    ]
-)
 
 # =========================================================================
 # TOOL 1: BMI CALCULATOR
