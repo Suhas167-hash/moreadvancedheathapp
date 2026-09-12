@@ -17,7 +17,7 @@ app_mode = st.sidebar.radio(
         "3. Target Heart Rate Zone Calculator",
         "4. Ideal Body Weight Calculator",
         "5. Hydration & Daily Water Calculator",
-        "6. Advanced Clinical Diagnostics (Coming Soon)"
+        "6. Advanced Clinical Diagnostics"
     ]
 )
 
