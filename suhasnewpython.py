@@ -257,7 +257,3 @@ elif app_mode == "5. Hydration & Daily Water Calculator":
             sc2.error("⚠️ **SIRS Positive (Score ≥ 2):** Patient meets criteria for Systemic Inflammatory Response Syndrome. If an infectious source is suspected, **assess for Sepsis Protocols** immediately and look for end-organ dysfunction.")
         else:
             sc2.success("✅ **SIRS Negative (Score < 2):** Patient does not currently meet clinical thresholds for systemic clinical instability. Continue routine monitoring.")
-
-elif app_mode == "6. Advanced Clinical Diagnostics (Coming Soon)":
-    st.title("🔮 Phase 2: Advanced Clinical Diagnostics")
-    st.info("Once you finish refining your general wellness metrics, this module is reserved for parsing advanced blood biomarkers, lipids, and calculating 10-year ASCVD hazard ratios.")
