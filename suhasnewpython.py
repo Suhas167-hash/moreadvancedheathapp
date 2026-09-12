@@ -220,5 +220,29 @@ elif app_mode == "6. Advanced Clinical Diagnostics":
         if calc_risk < 5.0:
             st.success("🟢 **Low Risk (<5%):** Guidelines recommend lifestyle therapies over pharmacological interventions.")
         elif 5.0 <= calc_risk < 7.5:
-            st.info("🟡 Borderline Risk (5.0% - 7.4%): Discuss risk-enhancing factors with the patient.")elif 7.5 <= calc_risk < 20.0:st.warning("🟠 Intermediate Risk (7.5% - 19.9%): Care guidelines suggest initiating moderate-intensity statin therapy.")else:st.error("🔴 High Risk (≥20%): Promptly initiate high-intensity statin therapy and manage risk factors aggressively.")with tab2:st.subheader("Systemic Inflammatory Response Syndrome (SIRS) Triage")st.caption("A critical objective utility used in Emergency Departments to identify potential systemic crisis.")st.markdown("##### Check all clinical findings that apply to the patient:")sirs_temp = st.checkbox("Abnormal Core Temperature: < 36°C (96.8°F) or > 38°C (100.4°F)")sirs_hr = st.checkbox("Tachycardia: Heart Rate > 90 beats per minute")sirs_rr = st.checkbox("Tachypnea: Respiratory Rate > 20 breaths per minute")sirs_wbc = st.checkbox("Abnormal Leukocyte Count: WBC > 12,000/µL or < 4,000/µL")sirs_score = sum([sirs_temp, sirs_hr, sirs_rr, sirs_wbc])st.markdown("---")sc1, sc2 = st.columns(2)sc1.metric(label="SIRS Score", value=f"{sirs_score} / 4")if sirs_score >= 2:sc2.error("⚠️ SIRS Positive: Patient meets critical thresholds. Assess for Sepsis Protocols immediately.")else:sc2.success("✅ SIRS Negative: Patient does not currently meet clinical thresholds for systemic instability.")
-            
+            st.info("🟡 **Borderline Risk (5.0% - 7.4%):** Discuss risk-enhancing factors with the patient.")
+        elif 7.5 <= calc_risk < 20.0:
+            st.warning("🟠 **Intermediate Risk (7.5% - 19.9%):** Care guidelines suggest initiating moderate-intensity statin therapy.")
+        else:
+            st.error("🔴 **High Risk (≥20%):** Promptly initiate high-intensity statin therapy and manage risk factors aggressively.")
+
+    with tab2:
+        st.subheader("Systemic Inflammatory Response Syndrome (SIRS) Triage")
+        st.caption("A critical objective utility used in Emergency Departments to identify potential systemic crisis.")
+        
+        st.markdown("##### Check all clinical findings that apply to the patient:")
+        sirs_temp = st.checkbox("Abnormal Core Temperature: < 36°C (96.8°F) or > 38°C (100.4°F)")
+        sirs_hr = st.checkbox("Tachycardia: Heart Rate > 90 beats per minute")
+        sirs_rr = st.checkbox("Tachypnea: Respiratory Rate > 20 breaths per minute")
+        sirs_wbc = st.checkbox("Abnormal Leukocyte Count: WBC > 12,000/µL or < 4,000/µL")
+        
+        sirs_score = sum([sirs_temp, sirs_hr, sirs_rr, sirs_wbc])
+        
+        st.markdown("---")
+        sc1, sc2 = st.columns(2)
+        sc1.metric(label="SIRS Score", value=f"{sirs_score} / 4")
+        
+        if sirs_score >= 2:
+            sc2.error("⚠️ **SIRS Positive:** Patient meets critical thresholds. Assess for Sepsis Protocols immediately.")
+        else:
+            sc2.success("✅ **SIRS Negative:** Patient does not currently meet clinical thresholds for systemic instability.")
